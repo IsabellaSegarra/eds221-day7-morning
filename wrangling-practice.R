@@ -82,4 +82,43 @@ anti_join(animals, sites)
 animals %>%
   filter(!location %in% sites$location)
 
+#Practice with lubridate
 
+my_date <- "03-13-1998"
+
+lubridate::mdy(my_date) #fixed date to ISO 8061
+
+#new format for date
+
+my_date <- "08-Jun-1974"
+
+lubridate::dmy(my_date) #dmy= date, month, year
+
+#another format
+
+my_date <- "19160518"
+
+lubridate::ymd(my_date) #ymd= year, month date
+
+lubridate::dmy("09/12/84")
+
+#working with date-times
+
+time <- "2020-08-12 11:18"
+ymd_hm(time) #ymd_hm= year, month, date _ hour minute
+class(ymd_hm(time)) #stored as POSIXct = good!
+
+#convert to PDT
+with_tz(time, "America/Los_Angeles")
+
+#extract info from dates
+week(time)
+year(time)
+day(time)
+
+
+start_time <- Sys.time()
+
+end_time <- Sys.time()
+
+end_time - start_time
